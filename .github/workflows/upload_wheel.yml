@@ -7,7 +7,7 @@ on:
   
 env:
   DATABRICKS_HOST: https://adb-7621144643150231.11.azuredatabricks.net  #(対象となるWorkspace URLを入力） 
-  DATABRICKS_TOKEN: ${{ secrets.DBTOKEN2 }}　　　 #先ほど登録したGitHub Secretsを呼び出す
+  DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}　　　 #先ほど登録したGitHub Secretsを呼び出す
 
 jobs:
   build:
