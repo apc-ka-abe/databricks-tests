@@ -1,7 +1,7 @@
 name: Databricks Pytest Integration test.
 
 on:　　　
-  [pull_request]
+  pull_request
   
 env:
   DATABRICKS_HOST: https://adb-7621144643150231.11.azuredatabricks.net/  #(対象となるWorkspace URLを入力） 
