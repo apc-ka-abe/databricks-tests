@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checks out the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         #version 2➝4
       
 # run_tests.py をDBFS上にアップロード。databricksが提供している upload-dbfs-tempを活用
