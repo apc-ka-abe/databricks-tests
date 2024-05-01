@@ -1,7 +1,12 @@
 name: Databricks Pytest Integration test.
 
 on:
-  push
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - master
   
 env:
   DATABRICKS_HOST: https://adb-7621144643150231.11.azuredatabricks.net  #(対象となるWorkspace URLを入力） 
@@ -12,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checks out the repo
-        uses: actions/checkout@v4 #version 2➝3
+        uses: actions/checkout@v4 #version 2➝4
       
 # run_tests.py をDBFS上にアップロード。databricksが提供している upload-dbfs-tempを活用
       - name: Upload main file
@@ -24,7 +29,7 @@ jobs:
 
 # Wheelによるパッケージ化
       - name: Setup python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5 #version 2➝5
       - name: Install wheel
         run: pip install wheel
       - name: Build wheel
