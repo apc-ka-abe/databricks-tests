@@ -39,6 +39,7 @@ jobs:
         with:
           local-path: example/dist/databricks_tests_example-0.0.1-py3-none-any.whl
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
+          cred: ${{ secrets.DBTOKEN }}　# add code by sua
 
 # databricks run submit実行のため、databricks-cli のインストール
       - name: install databricks cli
