@@ -24,8 +24,6 @@ jobs:
         with:
           local-path: test-harness/databricks_test_harness/run_tests.py
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
-        env:
-          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}
 
 # Wheelによるパッケージ化
       - name: Setup python
@@ -45,8 +43,6 @@ jobs:
         with:
           local-path: example/dist/databricks_tests_example-0.0.1-py3-none-any.whl
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
-        env:
-          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}
 
 # databricks run submit実行のため、databricks-cli のインストール
       - name: install databricks cli
