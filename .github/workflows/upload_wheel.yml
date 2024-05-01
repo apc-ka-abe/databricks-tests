@@ -2,7 +2,7 @@ name: Databricks Pytest Integration test.
 
 on:
   pull_request:
-      branches:
+    branches:
       - master
 
 env:
