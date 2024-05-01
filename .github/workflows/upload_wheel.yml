@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checks out the repo
-        uses: actions/checkout@v4 #version 2➝4
+        uses: actions/checkout@v2 #version 2➝4
       
 # run_tests.py をDBFS上にアップロード。databricksが提供している upload-dbfs-tempを活用
       - name: Upload main file
@@ -22,11 +22,11 @@ jobs:
           local-path: test-harness/databricks_test_harness/run_tests.py
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}
+          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}　#追加
 
 # Wheelによるパッケージ化
       - name: Setup python
-        uses: actions/setup-python@v5 #version 2➝5
+        uses: actions/setup-python@v2 #version 2➝5
       - name: Install wheel
         run: pip install wheel
       - name: Build wheel
@@ -42,7 +42,7 @@ jobs:
           local-path: example/dist/databricks_tests_example-0.0.1-py3-none-any.whl
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}
+          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}　#追加
 
 # databricks run submit実行のため、databricks-cli のインストール
       - name: install databricks cli
@@ -53,5 +53,3 @@ jobs:
         working-directory: ./example
         run:
           databricks runs submit --json-file run_submit.json
-        env:
-          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}
