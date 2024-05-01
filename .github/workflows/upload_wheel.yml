@@ -4,15 +4,18 @@ on:
   push
   
 env:
-  DATABRICKS_HOST: https://adb-7621144643150231.11.azuredatabricks.net  #(対象となるWorkspace URLを入力） 
-  DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}　　　 #先ほど登録したGitHub Secretsを呼び出す
+  DATABRICKS_HOST: https://adb-7621144643150231.11.azuredatabricks.net
+  #(対象となるWorkspace URLを入力） 
+  DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}
+  #先ほど登録したGitHub Secretsを呼び出す
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checks out the repo
-        uses: actions/checkout@v4 #version 2➝4
+        uses: actions/checkout@v2
+        #version 2➝4
       
 # run_tests.py をDBFS上にアップロード。databricksが提供している upload-dbfs-tempを活用
       - name: Upload main file
@@ -22,11 +25,12 @@ jobs:
           local-path: test-harness/databricks_test_harness/run_tests.py
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}　
+          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}
 
 # Wheelによるパッケージ化
       - name: Setup python
-        uses: actions/setup-python@v5 #version 2➝5
+        uses: actions/setup-python@v2
+        #version 2➝5
       - name: Install wheel
         run: pip install wheel
       - name: Build wheel
@@ -42,7 +46,7 @@ jobs:
           local-path: example/dist/databricks_tests_example-0.0.1-py3-none-any.whl
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}　
+          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}
 
 # databricks run submit実行のため、databricks-cli のインストール
       - name: install databricks cli
