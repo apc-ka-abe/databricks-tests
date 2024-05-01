@@ -53,3 +53,5 @@ jobs:
         working-directory: ./example
         run:
           databricks runs submit --json-file run_submit.json
+        env:
+          DATABRICKS_TOKEN: ${{ secrets.DBTOKEN }}
