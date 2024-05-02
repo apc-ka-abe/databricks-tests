@@ -5,7 +5,7 @@ on:　　　
 
 env:
   DATABRICKS_HOST: https://adb-7621144643150231.11.azuredatabricks.net/
-  DATABRICKS_TOKEN: ${{ secrets.dbToken }}　
+  DATABRICKS_TOKEN: ${{ secrets.dbToken }}
 
 jobs:
   build:
