@@ -1,11 +1,11 @@
 {
   "run_name": "jmaru_DatabricksTestsExample",
   "new_cluster": {
-    "spark_version": "10.4.x-scala2.12",
-    "node_type_id": "i3.xlarge",
+    "spark_version": "15.0.x-scala2.12",
+    "node_type_id": "Standard_DS3__v2",
     "num_workers": 1
   },
-  "timeout_seconds": 3600,
+  "timeout_seconds": 60,
   "libraries": [
     { "pypi": { "package": "pytest==5.3.5" } },
     { "whl": "dbfs:/tmp/jmaru/jobs/myapp/databricks_tests_example-0.0.1-py3-none-any.whl" }
