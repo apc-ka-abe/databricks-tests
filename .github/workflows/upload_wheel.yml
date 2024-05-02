@@ -4,8 +4,8 @@ on:　　　
   [pull_request]
 
 env:
-  DATABRICKS_HOST: https://adb-7621144643150231.11.azuredatabricks.net/  #(対象となるWorkspace URLを入力） 
-  DATABRICKS_TOKEN: ${{ secrets.dbToken }}　　　 #先ほど登録したGitHub Secretsを呼び出す
+  DATABRICKS_HOST: https://adb-7621144643150231.11.azuredatabricks.net/
+  DATABRICKS_TOKEN: ${{ secrets.dbToken }}　
 
 jobs:
   build:
