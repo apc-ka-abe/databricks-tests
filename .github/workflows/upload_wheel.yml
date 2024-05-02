@@ -1,7 +1,7 @@
 name: Databricks Pytest Integration test.
 
 on:
-  [pull_request]
+  [push]
 
 env:
   DATABRICKS_HOST: https://adb-7621144643150231.11.azuredatabricks.net/
