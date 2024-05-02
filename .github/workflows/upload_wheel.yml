@@ -1,6 +1,6 @@
 name: Databricks Pytest Integration test.
 
-on:　　　
+on:
   [pull_request]
 
 env:
