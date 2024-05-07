@@ -56,7 +56,7 @@ jobs:
         uses: databricks/upload-dbfs-temp@v0
         id: upload_wheel
         with:
-          local-path: example/dist/databricks_tests_example-0.0.1-py3-none-any.whl
+          local-path: ./example/dist/databricks_tests_example-0.0.1-py3-none-any.whl
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
 
 # databricks run submit実行のため、databricks-cli のインストール
