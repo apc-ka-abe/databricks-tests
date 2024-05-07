@@ -27,7 +27,7 @@ jobs:
 
 # Wheelによるパッケージ化
       - name: Setup python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v2
         #version 2➝5
       - name: Install wheel
         run: pip install wheel
