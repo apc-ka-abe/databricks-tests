@@ -43,8 +43,13 @@ jobs:
             git config --global user.email "jung@ap-com.co.jp"
             git config --global user.name "apc-jung"
             git add example/dist/*.whl
-            git commit -m "Add built wheel files"
-            git push
+            CHANGES=$(git diff --cached)
+            if [ -z "$CHANGES" ]; then
+              echo "No changes to commit."
+            else
+              git commit -m "Add built wheel files"
+              git push
+            fi
             
 # Wheel fileのアップロード
       - name: Upload Wheel
