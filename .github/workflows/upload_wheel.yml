@@ -46,10 +46,13 @@ jobs:
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
           
 # Wheel fileのCopy
-      - name: Copy wheel file
+      - name: Commit and Push file
         run: |
-          mkdir -p ./example/copy
-          cp example/dist/*.whl ./example/copy/
+            git config --global user.email "jung@ap-com.co.jp"
+            git config --global user.name "apc-jung"
+            git add example/copy/*.whl
+            git commit -m "Add built wheel files"
+            git push
 
 # databricks run submit実行のため、databricks-cli のインストール
       - name: install databricks cli
