@@ -50,7 +50,7 @@ jobs:
         run: |
             git config --global user.email "jung@ap-com.co.jp"
             git config --global user.name "apc-jung"
-            git add example/copy/*.whl
+            git add eexample/dist/*.whl
             git commit -m "Add built wheel files"
             git push
 
