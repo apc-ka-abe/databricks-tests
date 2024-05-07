@@ -44,6 +44,12 @@ jobs:
         with:
           local-path: example/dist/databricks_tests_example-0.0.1-py3-none-any.whl
           dbfs-temp-dir: 'dbfs:/tmp/jmaru/jobs/myapp/'
+          
+# Wheel fileのCopy
+      - name: Copy wheel file
+        run: |
+          mkdir -p ./example/copy
+          cp example/dist/*.whl ./example/copy/
 
 # databricks run submit実行のため、databricks-cli のインストール
       - name: install databricks cli
