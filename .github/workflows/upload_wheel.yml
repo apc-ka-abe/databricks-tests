@@ -48,6 +48,7 @@ jobs:
               echo "No changes to commit."
             else
               git commit -m "Add built wheel files"
+              git pull --rebase origin master
               git push
             fi
             
