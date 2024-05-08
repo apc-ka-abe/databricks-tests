@@ -35,6 +35,21 @@ jobs:
         working-directory: ./example
         run:
           python setup.py bdist_wheel
+
+# Wheel fileのCopy
+      - name: Commit and Push file
+        run: |
+            git config --global user.email "jung@ap-com.co.jp"
+            git config --global user.name "apc-jung"
+            git add example/dist/*.whl
+            CHANGES=$(git diff --cached)
+            if [ -z "$CHANGES" ]; then
+              echo "No changes to commit."
+            else
+              git commit -m "Add built wheel files"
+              git pull --rebase origin master
+              git push
+            fi
             
 # Wheel fileのアップロード
       - name: Upload Wheel
